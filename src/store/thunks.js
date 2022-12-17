@@ -54,6 +54,22 @@ export const addTaskThunk = (task) => async (dispatch) => {
   }
 };
 
+
+//Added code
+
+export const addEmployeeThunk = (employee) => async (dispatch) => {
+  // task = { title: "CSCI 127" }
+  try {
+    let res = await axios.post(`${path}/employees`, employee);
+    dispatch(ac.addEmployee(res.data));
+    return res.data;
+  } catch(err) {
+    console.error(err);
+  }
+};
+
+/////
+
 export const deleteTaskThunk = taskId => async dispatch => {
   try {
     await axios.delete(`${path}/tasks/${taskId}`);
@@ -83,3 +99,13 @@ export const fetchTaskThunk = id => async dispatch => {
     console.error(err);
   }
 };
+
+export const editEmployeeThunk = id => async dispatch => {
+  try {
+    let res = await axios.get(`${path}/employees/${id}`);
+    dispatch(ac.fetchTask(res.data));
+  } catch(err) {
+    console.error(err);
+  }
+};
+
