@@ -100,10 +100,22 @@ export const fetchTaskThunk = id => async dispatch => {
   }
 };
 
-export const editEmployeeThunk = id => async dispatch => {
+export const editEmployeeThunk = employee => async dispatch => {
   try {
-    let res = await axios.get(`${path}/employees/${id}`);
-    dispatch(ac.fetchTask(res.data));
+    let res = await axios.put(`${path}/employees/${employee.id}`, employee);
+    //res.data is the updated task object
+    dispatch(ac.editEmployee(res.data));
+  } catch(err) {
+    console.error(err);
+  }
+};
+
+
+export const deleteEmployeeThunk = employeeId => async dispatch => {
+  try {
+    await axios.delete(`${path}/employees/${employeeId}`);
+    //delete succesful so change state with dispatch
+    dispatch(ac.deleteEmployee(employeeId));
   } catch(err) {
     console.error(err);
   }
