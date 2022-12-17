@@ -83,3 +83,13 @@ export const fetchTaskThunk = id => async dispatch => {
     console.error(err);
   }
 };
+
+export const editEmployeeThunk = id => async dispatch => {
+  try {
+    let res = await axios.get(`${path}/employees/${id}`);
+    dispatch(ac.fetchTask(res.data));
+  } catch(err) {
+    console.error(err);
+  }
+};
+
