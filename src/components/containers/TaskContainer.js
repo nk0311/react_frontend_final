@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchTaskThunk } from "../../store/thunks";
+import { fetchTaskThunk, editEmployeeThunk } from "../../store/thunks";
 import { TaskView } from "../views";
 
 class TaskContainer extends Component {
@@ -13,6 +13,7 @@ class TaskContainer extends Component {
     return (
       <TaskView 
         task={this.props.task}
+        editEmployee={this.props.editEmployee}
       />
     );
   }
@@ -29,6 +30,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     fetchTask: (id) => dispatch(fetchTaskThunk(id)),
+    editEmployee: (employee) => dispatch(editEmployeeThunk(employee)),
   };
 };
 
