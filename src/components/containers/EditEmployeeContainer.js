@@ -106,7 +106,7 @@ class EditEmployeeContainer extends Component {
             <input type="text" name="department" value={this.state.department || ''} placeholder={employee.department} onChange={(e) => this.handleChange(e)}/>
             <br/>
 
-            <select onChange={(e) => this.handleSelectChange(e)}>
+            {/* <select onChange={(e) => this.handleSelectChange(e)}>
               {employee.task!==null ?
                 <option value={employee.taskId}>{employee.task.description+" (current)"}</option>
               : <option value="staff">Staff</option>
@@ -117,7 +117,7 @@ class EditEmployeeContainer extends Component {
                 )
               })}
               {employee.task!==null && <option value="staff">Staff</option>}
-            </select>
+            </select> */}
   
             <button type="submit">
               Submit
@@ -126,15 +126,15 @@ class EditEmployeeContainer extends Component {
           </form>
           { this.state.error !=="" && <p>{this.state.error}</p> }
 
-          {employee.taskId !== null ?
+          {/* {employee.taskId !== null ?
             <div> Current task:  
             <Link to={`/task/${employee.taskId}`}>{employee.task.description}</Link>
             <button onClick={async () => {await editEmployee({id:employee.id, taskId: null});  fetchEmployee(employee.id)}}>Unassign</button>
             </div>
             : <div> No task currently assigned </div>
-          }
+          } */}
 
-          <div> Other tasks
+          {/* <div> Other tasks
           {otherTasks.map(task => {
             return (
             <div key={task.id}>
@@ -145,7 +145,7 @@ class EditEmployeeContainer extends Component {
             </div>
             )})
           }
-          </div>
+          </div> */}
         </div>
         )
     }
