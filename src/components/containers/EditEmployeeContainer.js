@@ -52,8 +52,16 @@ class EditEmployeeContainer extends Component {
     handleSubmit = event => {
         event.preventDefault();
         //implementing form validation
-        if (this.state.firstname === "") {
-          this.setState({error: "Error: firstname cannot be empty"});
+        if (this.state.firstname === "" ) {
+          this.setState({error: "Error: Firstname cannot be empty"});
+          return;
+        }
+        else if(this.state.lastname === ""){
+          this.setState({error: "Error: Lastname cannot be empty"});
+          return;
+        }
+        else if(this.state.department === ""){
+          this.setState({error: "Error: Department cannot be empty"});
           return;
         }
 
