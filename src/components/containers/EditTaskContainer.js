@@ -97,7 +97,14 @@ class EditTaskContainer extends Component {
           this.setState({error: "Error: Completition Status cannot be empty"});
           return;
         }
-
+        if (this.state.prioritylevel === "") {
+          this.setState({error: "Error: Priority Level cannot be empty"});
+          return;
+        }
+        if (this.state.completionstatus === "") {
+          this.setState({error: "Error: Completion Status cannot be empty"});
+          return;
+        }
         //get new info for task from form input
         let task = {
             id: this.props.task.id,
