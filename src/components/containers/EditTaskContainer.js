@@ -86,7 +86,15 @@ class EditTaskContainer extends Component {
         event.preventDefault();
         //implementing form validation
         if (this.state.description === "") {
-          this.setState({error: "Error: description cannot be empty"});
+          this.setState({error: "Error: Description cannot be empty"});
+          return;
+        }
+        else if (this.state.prioritylevel === "") {
+          this.setState({error: "Error: Priority Level cannot be empty"});
+          return;
+        }
+        else if (this.state.completionstatus === "") {
+          this.setState({error: "Error: Completition Status cannot be empty"});
           return;
         }
 
