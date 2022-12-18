@@ -24,7 +24,7 @@ const EmployeeView = (props) => {
             </div>
           );
         })}</div>
-        <div>Available tasks:
+        <div>Unassigned tasks:
         {availableTasks.map( task => {
           return (
             <div key={task.id}>
